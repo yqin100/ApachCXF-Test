@@ -1,0 +1,24 @@
+// variables
+apply plugin: 'ear'
+
+version = versionProject
+
+repositories { 
+    mavenCentral() 
+}
+
+dependencies {
+    //following dependencies will become the ear modules and placed in the ear root
+    deploy project(path: ':CXF_web_rest', configuration: 'archives')
+}
+
+ear {
+  	baseName = EAR_BASENAME
+    appDirName 'src/main/app'  	// use application metadata found in this folder
+    libDirName ''				// set to empty string so that there will be no tag element created in application.xml
+                            	
+    deploymentDescriptor {  // custom entries for application.xml:
+        displayName = "CXF test tutorial EAR v" + versionProject  // defaults to project.name
+        webModule("CXF_web_rest.war", "/cxfWebRest")  // wouldn't deploy since my.war isn't a deploy depencency
+    }
+}

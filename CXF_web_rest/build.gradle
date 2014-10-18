@@ -1,0 +1,34 @@
+apply plugin: "war"
+
+version = versionProject
+
+// Variables
+// "src/main/resources"
+ext.mainResourcesDir = sourceSets.main.resources.srcDirs.path
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'log4j:log4j:1.2.17'
+
+    providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+}
+
+
+war {
+	baseName WAR_BASENAME
+    rootSpec.exclude '**/META-INF/**'
+    
+    // add configs to META-INF
+    metaInf {
+        from(mainResourcesDir + "/META-INF") {
+            include '**'
+            into('')
+        }
+    }
+}
