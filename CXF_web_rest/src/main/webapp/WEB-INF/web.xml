@@ -20,15 +20,7 @@
 	<servlet>
 		<servlet-name>CXFServlet</servlet-name>
 		<display-name>CXF Servlet</display-name>
-		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>	
-<!-- 		
-		<init-param>
-			<param-name>config-location</param-name>
-			<param-value>classpath:/META-INF/cxf/cxf-setup.xml</param-value>
-		</init-param>
-		
- -->		
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>	
 	</servlet>
 
 	<servlet-mapping>
