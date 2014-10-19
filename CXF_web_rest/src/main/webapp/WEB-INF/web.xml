@@ -7,13 +7,14 @@
     
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:/META-INF/cxf/cxf-setup.xml</param-value>
+        <param-value>
+            classpath:/META-INF/spring/applicationContext.xml, 
+            classpath:/META-INF/cxf/cxf-setup.xml
+        </param-value>
     </context-param>
     
 	<listener>
-		<listener-class>
-			org.springframework.web.context.ContextLoaderListener
-		</listener-class>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
     
 	<servlet>
